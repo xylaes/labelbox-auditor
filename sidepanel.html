@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: sans-serif; padding: 15px; background: #202124; color: #fff; }
+    h2 { font-size: 16px; margin-top: 0; }
+    
+    label { font-size: 12px; color: #aaa; display: block; margin-bottom: 5px; }
+    input { width: 100%; padding: 8px; box-sizing: border-box; margin-bottom: 10px; border-radius: 4px; border: 1px solid #5f6368; background: #303134; color: white; }
+    
+    button { width: 100%; padding: 10px; margin-top: 10px; background: #8ab4f8; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; color: #202124; }
+    button:hover { background: #aecbfa; }
+    
+    #status { margin-top: 10px; font-size: 12px; color: #81c995; min-height: 20px; }
+    #output { white-space: pre-wrap; margin-top: 15px; font-size: 14px; line-height: 1.5; border-top: 1px solid #444; padding-top: 10px; }
+    .error { color: #ff8a80; }
+  </style>
+</head>
+<body>
+  <h2>LabelBox Auditor</h2>
+  
+  <label for="apiKey">Gemini API Key:</label>
+  <input type="password" id="apiKey" placeholder="Paste key here...">
+  <button id="saveBtn">💾 Save Key</button>
+  <div id="status"></div>
+
+  <hr style="border-color: #444; margin: 15px 0;">
+
+  <button id="auditBtn">🚀 Audit Page</button>
+  
+  <div id="output"></div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
