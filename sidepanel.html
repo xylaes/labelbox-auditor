@@ -7,27 +7,62 @@
     h2 { font-size: 16px; margin-top: 0; }
     
     label { font-size: 12px; color: #aaa; display: block; margin-bottom: 5px; }
-    input { width: 100%; padding: 8px; box-sizing: border-box; margin-bottom: 10px; border-radius: 4px; border: 1px solid #5f6368; background: #303134; color: white; }
+    input[type="password"] { width: 100%; padding: 8px; box-sizing: border-box; margin-bottom: 10px; border-radius: 4px; border: 1px solid #5f6368; background: #303134; color: white; }
     
-    button { width: 100%; padding: 10px; margin-top: 10px; background: #8ab4f8; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; color: #202124; }
-    button:hover { background: #aecbfa; }
+    /* Toggle Switch for Auto Mode */
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      padding: 10px;
+      background: #303134;
+      border-radius: 4px;
+      border: 1px solid #5f6368;
+    }
+    .toggle-container input { margin-right: 10px; transform: scale(1.2); }
+    .toggle-label { font-size: 13px; font-weight: bold; color: #e8eaed; }
+
+    button { width: 100%; padding: 10px; margin-top: 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; color: #202124; transition: all 0.2s; }
+    button:hover { filter: brightness(1.1); }
+    button:disabled { background: #5f6368 !important; color: #aaa !important; cursor: not-allowed; }
     
-    #status { margin-top: 10px; font-size: 12px; color: #81c995; min-height: 20px; }
+    #saveKey { background: #8ab4f8; }
+    #auditBtn { background: #8ab4f8; }
+    
+    #autoFillBtn { 
+      background: #c58af9; 
+      color: #000;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      display: none; 
+      width: 100%;
+    }
+
+    #status { margin-top: 15px; padding: 10px; border-radius: 4px; background: #303134; font-size: 13px; line-height: 1.4; border: 1px solid #5f6368; min-height: 20px; }
     #output { white-space: pre-wrap; margin-top: 15px; font-size: 14px; line-height: 1.5; border-top: 1px solid #444; padding-top: 10px; }
     .error { color: #ff8a80; }
+    strong { color: #8ab4f8; }
   </style>
 </head>
 <body>
-  <h2>LabelBox Auditor</h2>
+  <h2>LabelBox Co-Pilot 🤖</h2>
   
   <label for="apiKey">Gemini API Key:</label>
   <input type="password" id="apiKey" placeholder="Paste key here...">
-  <button id="saveBtn">💾 Save Key</button>
-  <div id="status"></div>
+  <button id="saveKey">💾 Save Key</button>
 
   <hr style="border-color: #444; margin: 15px 0;">
 
-  <button id="auditBtn">🚀 Audit Page</button>
+  <div class="toggle-container">
+    <input type="checkbox" id="autoMode">
+    <span class="toggle-label">⚙️ Autonomous Mode (Auto-Submit)</span>
+  </div>
+
+  <button id="auditBtn">⚡️ Start Audit & Timer</button>
+  
+  <button id="autoFillBtn">✨ Auto-Fill Answers</button>
+
+  <div id="status">Ready.</div>
   
   <div id="output"></div>
 
